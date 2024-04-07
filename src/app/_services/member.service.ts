@@ -20,4 +20,8 @@ export class MemberService {
     return this.httpClient.get<Member>(this.baseUrl + `user/${username}`);
   }
 
+  updateMember(member: Member){
+    return this.httpClient.put(this.baseUrl + 'user', member);
+  }
+
 }

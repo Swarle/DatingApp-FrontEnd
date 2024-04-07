@@ -9,31 +9,15 @@ import {User} from "./_models/user";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'DatingApp-FrontEnd';
-  public users: any;
+  title = 'DatingApp';
 
   constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
-    this.getUsers();
-    // this.setCurrentUser();
+
   }
 
-  getUsers(){
-    this.httpClient.get('https://localhost:7059/api/user').subscribe({
-      next: response => this.users = response,
-      error: error => console.log(error)
-    });
-  }
 
-  // setCurrentUser(){
-  //   const userString = localStorage.getItem('user');
-  //
-  //   if(!userString) return;
-  //
-  //   const user: IUser = JSON.parse(userString);
-  //   this.accountService.setCurrentUser(user);
-  // }
 
 }

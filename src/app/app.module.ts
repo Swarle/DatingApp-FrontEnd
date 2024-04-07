@@ -20,6 +20,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import {NgOptimizedImage} from "@angular/common";
 import {JwtInterceptor} from "./_interceptors/jwt.interceptor";
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {JwtInterceptor} from "./_interceptors/jwt.interceptor";
     MessagesComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    MemberEditComponent
   ],
   imports: [
     BrowserModule,
