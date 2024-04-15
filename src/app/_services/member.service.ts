@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Member} from "../_models/member";
-import {User} from "../_models/user";
 import {map, of} from "rxjs";
 import {PaginatedResult} from "../_models/pagination";
 import {UserParams} from "../_models/userParams";
@@ -71,6 +70,18 @@ export class MemberService {
 
   setMainPhoto(photoId: number){
     return this.httpClient.put(this.baseUrl + 'user/set-main-photo/' + photoId,{});
+  }
+
+  addLike(username: string){
+    return this.httpClient.post(this.baseUrl + `likes/${username}`, {});
+  }
+
+  getLikes(predicate: string, pageNumber: number, pageSize: number){
+    let params = this.getPaginationHeaders(pageNumber, pageSize);
+
+    params = params.append('predicate', predicate);
+
+    return this.getPaginatedResult<Member[]>(this.baseUrl + 'likes', params);
   }
 
   deletePhoto(photoId: number){
